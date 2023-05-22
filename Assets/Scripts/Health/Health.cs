@@ -32,37 +32,45 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float _damage)
     {
-        if (invulnerable) return; 
-        currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
-
-        if (currentHealth > 0)
+        if (invulnerable) return;
+        if (transform.localScale.x > 1)
         {
-            //player hurt
-            anim.SetTrigger("hurt");
-
-            //iframes
-            StartCoroutine(Invunerability());
-
-            SoundManager.instance.PlaySound(hurtSound);
+            transform.localScale = Vector3.one;
         }
         else
         {
-            //player dead
-            if (!dead) 
-            {
-                //deactivate all attached component classes
-                foreach (Behaviour component in components)
-                {
-                    component.enabled = false; 
-                }
+            currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
-                anim.SetBool("grounded", true);
-                anim.SetTrigger("die");
-               
-                dead = true;
-                SoundManager.instance.PlaySound(deathSound);
+            if (currentHealth > 0)
+            {
+                //player hurt
+                anim.SetTrigger("hurt");
+
+                //iframes
+                StartCoroutine(Invunerability());
+
+                SoundManager.instance.PlaySound(hurtSound);
+            }
+            else
+            {
+                //player dead
+                if (!dead)
+                {
+                    //deactivate all attached component classes
+                    foreach (Behaviour component in components)
+                    {
+                        component.enabled = false;
+                    }
+
+                    anim.SetBool("grounded", true);
+                    anim.SetTrigger("die");
+
+                    dead = true;
+                    SoundManager.instance.PlaySound(deathSound);
+                }
             }
         }
+       
     }
 
     public void AddHealth(float _value)

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
@@ -10,7 +11,19 @@ public class EnemyDamage : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            collision.GetComponent<Health>().TakeDamage(damage);
+            //collision.GetComponent<Health>().TakeDamage(damage);
+            if (collision.GetComponent<Transform>().position.y > (transform.position.y + 1.2f))
+            {
+                gameObject.GetComponent<BoxCollider2D>().isTrigger = false; 
+                gameObject.GetComponent<Health>().TakeDamage(damage);
+                //print(gameObject);
+            }
+            else
+            {
+                collision.GetComponent<Health>().TakeDamage(damage);
+            }
+
+            gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
         }
     }
 }

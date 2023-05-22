@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
         playerInput = new PlayerActionsExample();
+        //transform.localScale= new Vector3(3,3,3);
     }
 
     public void ChangeDirection(float value)
@@ -72,11 +73,13 @@ public class PlayerMovement : MonoBehaviour
         // Flip player when moving left-right https://youtu.be/Gf8LOFNnils?list=PLgOEwFbvGm5o8hayFB6skAfa8Z-mw4dPV&t=277
         if (horizontalInput > 0.01f)
         {
-            transform.localScale = Vector3.one;
+            //transform.localScale = Vector3.one;
+            transform.eulerAngles = new Vector3(0, 0, 0);
         }
         else if (horizontalInput < -0.01f)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            //transform.localScale = new Vector3(-1, 1, 1);
+            transform.eulerAngles = new Vector3(0, 180, 0);
         }
 
         //Set animator parameters

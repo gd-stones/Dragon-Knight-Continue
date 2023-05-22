@@ -50,12 +50,20 @@ public class PlayerAttack : MonoBehaviour
 
         //pool fireballs
         fireballs[FindFireball()].transform.position = firePoint.position;
-        fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+        //fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+        if (transform.eulerAngles.y > 0)
+        {
+            fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(Mathf.Sign(-1));
+        }
+        else
+        {
+            fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(Mathf.Sign(1));
+        }
     }
 
     private int FindFireball()
     {
-        for (int i =0; i< fireballs.Length; i++)
+        for (int i = 0; i < fireballs.Length; i++)
         {
             if (!fireballs[i].activeInHierarchy) return i;
         }
