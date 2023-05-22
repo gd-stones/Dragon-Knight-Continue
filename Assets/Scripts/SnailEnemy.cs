@@ -21,8 +21,6 @@ public class SnailEnemy : MonoBehaviour
             {
                 collision.GetComponent<Health>().TakeDamage(damage);
             }
-
-            gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
         }
     }
 

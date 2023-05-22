@@ -27,7 +27,6 @@ public class EnemyDamage : MonoBehaviour
         }
         else if (collision.tag == "Snail")
         {
-            print("skfjhslfhslfj");
             gameObject.GetComponent<Health>()?.TakeDamage(damage);
         }
     }
