@@ -14,7 +14,6 @@ public class SnailEnemy : MonoBehaviour
 
             if (collision.GetComponent<Transform>().position.y > -0.3)
             {
-                //gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 StartCoroutine(MoveObjectToRight(gameObject, 1f, collision));
             }
             else

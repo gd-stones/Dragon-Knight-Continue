@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -22,6 +23,9 @@ public class Health : MonoBehaviour
     [Header("Death Sound")]
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioClip hurtSound;
+
+    private UIManager uiManager;
+    PlayerRespawn playerRespawn;
 
     private void Awake()
     {
@@ -64,13 +68,17 @@ public class Health : MonoBehaviour
 
                     anim.SetBool("grounded", true);
                     anim.SetTrigger("die");
+                    //uiManager?.GameOver();
+                    //if (GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().currentHealth <= 0)
+                    //{
+                    //    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRespawn>().CheckRespawn();
+                    //}
 
                     dead = true;
                     SoundManager.instance.PlaySound(deathSound);
                 }
             }
         }
-       
     }
 
     public void AddHealth(float _value)
@@ -80,7 +88,7 @@ public class Health : MonoBehaviour
 
     public void Respawn()
     {
-        dead = false; 
+        dead = false;
         AddHealth(startingHealth);
         anim.ResetTrigger("die");
         anim.Play("Idle");

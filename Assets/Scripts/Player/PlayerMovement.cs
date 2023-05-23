@@ -122,7 +122,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
     public bool CanJump()
     {
         if (coyoteCounter <= 0 && !onWall() && jumpCounter <= 0) return false;
