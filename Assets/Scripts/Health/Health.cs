@@ -24,9 +24,6 @@ public class Health : MonoBehaviour
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioClip hurtSound;
 
-    private UIManager uiManager;
-    PlayerRespawn playerRespawn;
-
     private void Awake()
     {
         currentHealth = startingHealth;
@@ -40,6 +37,7 @@ public class Health : MonoBehaviour
         if (transform.localScale.x > 1)
         {
             transform.localScale = Vector3.one;
+            StartCoroutine(Invunerability());
         }
         else
         {

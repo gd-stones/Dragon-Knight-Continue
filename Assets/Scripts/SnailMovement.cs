@@ -20,22 +20,21 @@ public class SnailMovement : MonoBehaviour
     [SerializeField] private float idleDuration;
     private float idleTimer;
 
-    //[Header("Enemy Animator")]
-    //[SerializeField] private Animator anim;
-
+    public bool die = false;
 
     private void Awake()
     {
         initScale = enemy.localScale;
     }
 
-    private void OnDisable()
-    {
-        //anim.SetBool("moving", false);
-    }
-
     private void Update()
     {
+        if (die)
+        {
+            //print("sdfsfsf" + die);
+            return;
+        }
+
         if (movingLeft)
         {
             if (enemy.position.x >= leftEdge.position.x)
@@ -63,8 +62,6 @@ public class SnailMovement : MonoBehaviour
 
     private void DirectionChange()
     {
-        //anim.SetBool("moving", false);
-
         idleTimer += Time.deltaTime;
 
         if (idleTimer > idleDuration)
@@ -76,7 +73,6 @@ public class SnailMovement : MonoBehaviour
     private void MoveInDirection(int _direction)
     {
         idleTimer = 0;
-        //anim.SetBool("moving", true);
 
         //make enemy face direction
         enemy.localScale = new Vector3(Mathf.Abs(initScale.x) * _direction,

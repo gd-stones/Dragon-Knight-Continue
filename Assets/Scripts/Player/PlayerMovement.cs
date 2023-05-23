@@ -100,14 +100,14 @@ public class PlayerMovement : MonoBehaviour
             //print("Input.GetKeyUp(KeyCode.Space) && body.velocity.y > 0");
         }
 
-        if (onWall())
-        {
-            body.gravityScale = 0;
-            body.velocity = Vector2.zero;
-        }
-        else
-        {
-            body.gravityScale = 7;
+        //if (onWall())
+        //{
+        //    body.gravityScale = 0;
+        //    body.velocity = Vector2.zero;
+        //}
+        //else
+        //{
+            body.gravityScale = 3;
             body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
             if (isGrounded())
@@ -119,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 coyoteCounter -= Time.deltaTime; //start decreasing coyote counter when not on the ground
             }
-        }
+        //}
     }
 
     public bool CanJump()

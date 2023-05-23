@@ -25,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
 #if !UNITY_STANDALONE
-        InvokeRepeating(nameof(Attack), 0, attackOffset);
+        //InvokeRepeating(nameof(Attack), 0, attackOffset);
 #endif
     }
 
@@ -41,7 +41,7 @@ public class PlayerAttack : MonoBehaviour
 #endif
     }
 
-    private void Attack()
+    public void Attack()
     {
         SoundManager.instance.PlaySound(fireballSound);
 
