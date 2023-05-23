@@ -68,12 +68,7 @@ public class Health : MonoBehaviour
 
                     anim.SetBool("grounded", true);
                     anim.SetTrigger("die");
-                    //uiManager?.GameOver();
-                    //if (GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().currentHealth <= 0)
-                    //{
-                    //    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRespawn>().CheckRespawn();
-                    //}
-
+                    
                     dead = true;
                     SoundManager.instance.PlaySound(deathSound);
                 }

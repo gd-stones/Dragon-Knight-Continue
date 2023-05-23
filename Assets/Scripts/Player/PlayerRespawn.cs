@@ -16,6 +16,14 @@ public class PlayerRespawn : MonoBehaviour
         uiManager = FindObjectOfType<UIManager>();
     }
 
+    private void Update()
+    {
+        if (gameObject.GetComponent<Health>().currentHealth <= 0)
+        {
+            CheckRespawn();
+        }
+    }
+
     public void CheckRespawn()
     {
         //check is check point available
