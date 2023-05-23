@@ -15,7 +15,7 @@ public class EnemyDamage : MonoBehaviour
             if (collision.GetComponent<Transform>().position.y > (transform.position.y + 1.2f))
             {
                 gameObject.GetComponent<BoxCollider2D>().isTrigger = false; 
-                gameObject.GetComponent<Health>().TakeDamage(damage);
+                gameObject.GetComponent<Health>()?.TakeDamage(damage);
                 //print(gameObject);
             }
             else
