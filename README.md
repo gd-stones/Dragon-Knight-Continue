@@ -1,5 +1,4 @@
 # Continue the dragon knight game after fixing the bug
-
 Control the character with the control buttons available on the screen
 
 ### In the game screen
