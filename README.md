@@ -3,7 +3,7 @@
 Control the character with the control buttons available on the screen
 
 ### In the game screen
-![](https://github.com/nguyen-duc-viet/Dragon-Knight-Continue/blob/master/GamePlayImages/1.png)
+![](https://github.com/nguyen-duc-viet/Dragon-Knight-Continue/blob/master/GamePlayImages/1.jpg)
 
 ### Game over
-![](https://github.com/nguyen-duc-viet/Dragon-Knight-Continue/blob/master/GamePlayImages/2.png)
+![](https://github.com/nguyen-duc-viet/Dragon-Knight-Continue/blob/master/GamePlayImages/2.jpg)
